@@ -143,8 +143,14 @@ void exo30(void) {
   longueur = saisir(chaine);
   scanf("%c", &caractere);
   printf("La chaine est \"%s\" et fait %d de longueur", chaine, longueur);
+  saisir()
 }
 
+/**
+ * Fonction qui permet à l'utilisateur de rentrer un texte
+ * @param  chaine pointeur sur char
+ * @return int
+ */
 int saisir(char *chaine) {
   int i = 0;
   printf("Entrez une chaine de caractères :\n");
@@ -157,6 +163,10 @@ int saisir(char *chaine) {
   return i;
 }
 
+/**
+ * Fonction main, qui est appelée à à l'execution du progamme
+ * @return int
+ */
 int main(void) {
   int exercice;
   int tab[] = {1, 4, 5, 2, 32, 15 ,20, 6}, tab_length = 8;
