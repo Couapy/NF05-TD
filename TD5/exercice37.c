@@ -1,17 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int a[3][3] = {
-  {1, 2, 3},
-  {4, 5, 6},
-  {7, 8, 9}
-}, b[3][3] = {
-  {12, 7, 45},
-  {27, 2, 11},
-  {0, 12, 9}
+// int a[3][3] = {
+//   {1, 2, 3},
+//   {4, 5, 6},
+//   {7, 8, 9}
+// }, b[3][3] = {
+//   {12, 7, 45},
+//   {27, 2, 11},
+//   {0, 12, 9}
+// };
+// int a_x = 3, a_y = 3;
+// int b_x = 3, b_y = 3;
+
+int a[2][2] = {
+  {2, 5},
+  {4, 2},
+}, b[2][2] = {
+  {1, 0},
+  {1, 1}
 };
-int a_x = 3, a_y = 3;
-int b_x = 3, b_y = 3;
+int a_x = 2, a_y = 2;
+int b_x = 2, b_y = 2;
 
 void afficher(void);
 void addition(void);
@@ -65,18 +75,18 @@ void calculer(int signe) {
 }
 
 int multiplier(void) {
-  if (a_y == b_x) {
-    int res[a_x][b_y];
-  } else {
+  printf("Mutlipication\n");
+  int res[a_x][b_y];
+  if (a_y != b_x) {
     printf("On ne peut pas calculer\n");
     return 0;
   }
 
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
+  for (int i = 0; i < a_x; i++) {
+    for (int j = 0; j < b_y; j++) {
       res[i][j] = 0;
       for (int k = 0; k < a_y; k++) {
-        res[i][j] = a[k][j] + b[i][k];
+        res[i][j] += a[i][k] * b[k][j];
       }
       printf("%d ", res[i][j]);
     }
