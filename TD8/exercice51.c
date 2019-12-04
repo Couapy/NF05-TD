@@ -93,10 +93,10 @@ void stockerNLivres(int n) {
   fclose(fichier);
 }
 
-void rechercherLivret(void) {
+void rechercherLivre(void) {
   FILE *fichier;
 
-  fichier = fopen("files/exo51.txt");
+  fichier = fopen("files/exo51.txt", "r");
 
   fclose(fichier);
 }
