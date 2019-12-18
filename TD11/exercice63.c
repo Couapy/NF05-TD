@@ -46,19 +46,21 @@ Pile* depiler(Pile **pile) {
 }
 
 void circulation(Pile **pile, int nombre) {
-  Pile *element = NULL, *dernier = NULL; // ce sont des éléments
+  Pile *element = NULL, *premier = NULL, *aux = NULL; // ce sont des éléments
   Pile *inter = NULL; // C'est une pille
   if (*pile != NULL || (*pile)->suivant == NULL) {
     for (int i = 0; i < nombre; i++) {
+      premier = depiler(pile);
+      printf("PREMIER ! %d\n", premier->valeur);
       while (*pile != NULL) {
-        empiler(&inter, depiler(pile));
+        aux = depiler(pile);
+        empiler(&inter, aux);
       }
-      dernier = depiler(&inter);
-      printf("DERNIER ! %d\n", dernier->valeur);
+      empiler(pile, premier);
       while (inter != NULL) {
         empiler(pile, depiler(&inter));
       }
-      empiler(pile, dernier);
+
     }
   }
 }
